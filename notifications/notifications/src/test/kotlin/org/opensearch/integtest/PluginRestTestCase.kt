@@ -242,8 +242,8 @@ abstract class PluginRestTestCase : OpenSearchRestTestCase() {
         client().performRequest(request)
     }
 
-    fun createUserWithRoles(user: String, role: String, backendRole: String) {
-        createUser(user, user, arrayOf(backendRole))
+    fun createUserWithRoles(user: String, password: String, role: String, backendRole: String) {
+        createUser(user, password, arrayOf(backendRole))
         addPatchUserRolesMapping(role, arrayOf(user))
     }
 
@@ -254,11 +254,11 @@ abstract class PluginRestTestCase : OpenSearchRestTestCase() {
 
     fun createUserWithCustomRole(
         user: String,
+        password: String,
         role: String,
         backendRole: String,
         clusterPermissions: String?
     ) {
-        val password = randomAlphaOfLength(6) + "_" + randomIntBetween(1000, 10000) + "!" + randomAlphaOfLength(10)
         createUser(user, password, arrayOf(backendRole))
         createCustomRole(role, clusterPermissions)
         createUserRolesMapping(role, arrayOf(user))
