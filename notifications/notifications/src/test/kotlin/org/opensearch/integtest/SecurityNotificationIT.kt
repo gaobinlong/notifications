@@ -31,13 +31,14 @@ class SecurityNotificationIT : PluginRestTestCase() {
         }
     }
 
-    val user = "integTestUser"
+    private val user = "integTestUser"
+    private val password = randomAlphaOfLength(16) + "_" + randomIntBetween(1000, 10000)
     var userClient: RestClient? = null
 
     @Before
     fun create() {
-        createUser(user, user, arrayOf())
-        userClient = SecureRestClientBuilder(clusterHosts.toTypedArray(), isHttps(), user, user)
+        createUser(user, password, arrayOf())
+        userClient = SecureRestClientBuilder(clusterHosts.toTypedArray(), isHttps(), user, password)
             .setSocketTimeout(60000)
             .setConnectionRequestTimeout(180000)
             .build()
