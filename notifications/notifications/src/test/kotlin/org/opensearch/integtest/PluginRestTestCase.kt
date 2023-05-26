@@ -258,7 +258,8 @@ abstract class PluginRestTestCase : OpenSearchRestTestCase() {
         backendRole: String,
         clusterPermissions: String?
     ) {
-        createUser(user, user, arrayOf(backendRole))
+        val password = randomAlphaOfLength(6) + "_" + randomIntBetween(1000, 10000) + "!" + randomAlphaOfLength(10)
+        createUser(user, password, arrayOf(backendRole))
         createCustomRole(role, clusterPermissions)
         createUserRolesMapping(role, arrayOf(user))
     }
