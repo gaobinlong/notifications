@@ -33,7 +33,7 @@ class SecurityNotificationIT : PluginRestTestCase() {
 
     private val user = "integTestUser"
     private val password =
-        "sq^%X*x" + randomAlphaOfLength(6) + "_" + randomIntBetween(1000, 10000) + "!" + randomAlphaOfLength(10)
+        "sq^%X*xy" + randomAlphaOfLength(6) + "_" + randomIntBetween(1000, 10000) + "!" + randomAlphaOfLength(10)
     var userClient: RestClient? = null
 
     @Before
