@@ -32,7 +32,7 @@ class SecurityNotificationIT : PluginRestTestCase() {
     }
 
     private val user = "integTestUser"
-    private val password = "AeTq(\$%u-44c_j9NJB45a#2#JP7sH"
+    private val password = "TestpgfhertergGd435AASA123!"
     var userClient: RestClient? = null
 
     @Before
